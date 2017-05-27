@@ -10,15 +10,15 @@ if(isset($_POST['submit'])){
 		$user=$_POST['user'];
 		$pass=$_POST['pass'];
 		//Establishing Connection with server by passing server_name, user_id and pass as a patameter
-		$conn = mysqli_connect("localhost", "root", "");
+		$conn = mysqli_connect("db1.cs642-shu.com", "gameuser", "mypass");
 		//Selecting Database
-		$db = mysqli_select_db($conn, "test");
+		$db = mysqli_select_db($conn, "games");
 		//sql query to fetch information of registerd user and finds user match.
-		$query = mysqli_query($conn, "SELECT * FROM userpass WHERE pass='$pass' AND user='$user'");
+		$query = mysqli_query($conn, "SELECT * FROM login WHERE pass='$pass' AND user='$user'");
 		
 		$rows = mysqli_num_rows($query);
 		if($rows == 1){
-			header("Location: welcome.php"); // Redirecting to other page
+			header("Location: http://52.87.204.169/GamePage.htm"); // Redirecting to other page
 		}
 		else
 		{

@@ -3,6 +3,7 @@ MAINTAINER SHU
 
 RUN yum -y --setopt=tsflags=nodocs update && \    
 yum -y --setopt=tsflags=nodocs install httpd && \   
+yum -y install php php-mysql &&\
  yum clean all
 
 EXPOSE 80

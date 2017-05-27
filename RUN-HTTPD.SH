@@ -12,3 +12,5 @@ mv /gamep.jpg /var/www/html/gamep.jpg
 mv /index.html /var/www/html/index.html
 mv /login.php /var/www/html/login.php
 mv /welcome.php /var/www/html/welcome.php
+
+/etc/init.d/httpd restart

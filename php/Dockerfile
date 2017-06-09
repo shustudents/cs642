@@ -14,6 +14,7 @@ ADD gamep.php /gamep.php
 ADD index.html /index.html
 ADD login.php /login.php
 ADD welcome.php /welcome.php
+ADD gamep.jpg /gamep.jpg
 
 RUN chmod -v +x /run-httpd.sh
 

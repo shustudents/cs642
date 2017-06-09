@@ -1,0 +1,20 @@
+173.31.53.119;	# blank server 1
+173.31.12.14;	# blank server 2
+173.31.62.173;	# alharbyfaisal -r2
+173.31.62.195;	# bommagounvijiten -db2
+173.31.58.70;	# chandra
+173.31.55.159;	# gallohenry -app2
+173.31.53.140;	# goud
+173.31.49.222;	# gudisevamahesh -r1
+173.31.56.121;	# guldimannterry -ns1
+173.31.52.6;	# manninomchael -db1
+173.31.4.125;	# Monitors
+173.31.49.39;	# mutyalapranavash
+173.31.57.195;	# nisbettchantelle
+173.31.56.193;	# Praveeb
+173.31.58.69;	# sai
+173.31.53.203;	# santanaallen
+173.31.56.65;	# taiyanidesalexander
+173.31.1.249;	# terraform-example
+173.31.60.148;	# togadiyajignesh -app1
+173.31.51.236;	# weglarzgeoffrey

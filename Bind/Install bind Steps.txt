@@ -1,0 +1,23 @@
+Steps taken to setup bind on EC2.
+#install bind
+	sudo yum install bind bind-utils -y
+
+#Edit the /etc/named.conf file to match the specified file
+#Edit the /etc/named/named.conf.local file as well
+
+# add the zones directory into named
+	sudo chmod 755 /etc/named
+	sudo mkdir /etc/named/zones
+#Configure /etc/named/zones/db.cs642-shu.com
+#Configure /etc/named/zones/db.173.31
+ 
+#Check configuration (no errors is a good thing):
+	sudo named-checkconf
+#start the service
+	/etc/init.d/named start
+# configure it to run on startup
+	sudo chkconfig named on
+ 
+#check to make sure the config files are correct (should return OK)
+	sudo named-checkzone cs642-shu.com /etc/named/zones/db.cs642-shu.com 
+	sudo named-checkzone 31.173.in-addr.arpa /etc/named/zones/db.173.31 

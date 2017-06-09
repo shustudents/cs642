@@ -1,0 +1,19 @@
+$TTL    604800
+@       IN      SOA     cs642-shu.com. admin.cs642-shu.com. (
+                              3         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+; name servers
+      IN      NS      ns1.cs642-shu.com.
+
+; PTR Records
+121.56   IN      PTR     ns1.cs642-shu.com.  ; 173.31.56.121
+222.49   IN      PTR     r1.cs642-shu.com.   ; 173.31.49.222
+173.62   IN      PTR     r2.cs642-shu.com.   ; 173.31.62.173
+6.52     IN      PTR     db1.cs642-shu.com.  ; 173.31.52.6
+195.62   IN      PTR     db2.cs642-shu.com.  ; 173.31.62.195
+148.60   IN      PTR     app1.cs642-shu.com. ; 173.31.60.148
+159.55   IN      PTR     app2.cs642-shu.com. ; 173.31.55.159
+

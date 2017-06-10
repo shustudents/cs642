@@ -1,5 +1,22 @@
 #!/usr/bin/python
 from random import randint
+import mysql.connector
+
+
+def insertRecord(result):
+
+        conn = mysql.connector.connect(
+                user='game',
+                password='cs642',
+                host='172.31.53.140',
+                database='games')
+        cur = conn.cursor()
+        query = "insert into records (username,password,result,score,date) values ('jignesh','123456','"+result+"i',1,sysdate())"
+        cur.execute(query)
+        conn.commit()
+        cur.close()
+        conn.close()
+        return;
 
 
 
@@ -20,21 +37,27 @@ while player == False:
     player = input("Rock, Paper, Scissors?")
     if player == computer:
         print("Tie!")
+	insertRecord("Tie")
     elif player == "Rock":
         if computer == "Paper":
             print("You lose!", computer, "covers", player)
+            insertRecord("lose")
         else:
             print("You win!", player, "smashes", computer)
+            insertRecord("win")
     elif player == "Paper":
         if computer == "Scissors":
             print("You lose!", computer, "cut", player)
         else:
             print("You win!", player, "covers", computer)
+            insertRecord("win")
     elif player == "Scissors":
         if computer == "Rock":
             print("You lose...", computer, "smashes", player)
+            insertRecord("lose")
         else:
             print("You win!", player, "cut", computer)
+            insertRecord("win")
     else:
         print("That's not a valid play. Check your spelling!")
     #player was set to True, but we want it to be False so the loop continues

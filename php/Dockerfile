@@ -10,7 +10,6 @@ EXPOSE 80
 
 # Simple startup script to avoid some issues observed with container restart
 ADD run-httpd.sh /run-httpd.sh
-ADD gamep.php /gamep.php
 ADD index.html /index.html
 ADD login.php /login.php
 ADD welcome.php /welcome.php

@@ -15,8 +15,8 @@ resource "aws_launch_configuration" "consul" {
 resource "aws_autoscaling_group" "consul_scale" {
   name                 = "consul_config"
   launch_configuration = "${aws_launch_configuration.consul.name}"
-  min_size             = 1
-  max_size             = 1
+  min_size             = 2
+  max_size             = 2
   availability_zones   = ["us-east-2a"]
 
   tag {

@@ -6,13 +6,13 @@ resource "aws_security_group" "access" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["174.199.24.106/32"]
+    cidr_blocks = ["204.148.20.206/32"]
   }
   ingress {
     from_port   = 8080
     to_port     = 8080
     protocol    = "tcp"
-    cidr_blocks = ["174.199.24.106/32"]
+    cidr_blocks = ["204.148.20.206/32"]
   }
   tags {
     Name = "access"

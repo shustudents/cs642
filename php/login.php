@@ -1,4 +1,5 @@
 <?php
+session_start();
 $error=''; //Variable to Store error message;
 if(isset($_POST['submit'])){
 	if(empty($_POST['user']) || empty($_POST['pass'])){
@@ -18,7 +19,8 @@ if(isset($_POST['submit'])){
 		
 		$rows = mysqli_num_rows($query);
 		if($rows == 1){
-			header("Location: http://52.87.204.169/GamePage.htm"); // Redirecting to other page
+			$_SESSION['user'] = $user;
+			header("Location: http://52.87.204.169/GamePage.php"); // Redirecting to other page
 		}
 		else
 		{

@@ -3,14 +3,19 @@ from random import randint
 import sys
 import json
 
+def getConnection()
+{
+	conn = mysql.connector.connect(
+                user='game',
+                password='cs642',
+                host='db2.cs642-shu.com',
+                database='games')
+	return conn;
+}
 
 def insertRecord(result,user):
 
-        conn = mysql.connector.connect(
-                user='game',
-                password='cs642',
-                host='172.31.53.140',
-                database='games')
+        conn = getConnection()
         cur = conn.cursor()
         query = "insert into records (username,password,result,score,date) values ("'"+user+"','123456','"+result+"',1,sysdate())"
         cur.execute(query)
@@ -23,11 +28,7 @@ def fetchCounts(user):
 	tie=0;
 	lose=0;
         win=0; 	
-	conn = mysql.connector.connect(
-                user='game',
-                password='cs642',
-                host='172.31.53.140',
-                database='games')
+	conn = getConnection()
         cur = conn.cursor()
 	query = "select result ,count(result) from records where username='"+user+"' group by result"
         cur.execute(query)
@@ -44,10 +45,6 @@ def fetchCounts(user):
 	
 
 
-
-print "Content-Type: text/html"
-
-print
 POST={}
 args=sys.stdin.read().split('&')
 

@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# pulled from https://github.com/CentOS/CentOS-Dockerfiles/blob/master/bind/centos7/container-image-root/entrypoint
 set -x
 
 create_named_data_dir() {

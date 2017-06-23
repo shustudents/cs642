@@ -1,48 +1,45 @@
 #!/usr/bin/python
 from random import randint
-import sys
-import json
+import mysql.connector
 
-def getConnection()
-{
-	conn = mysql.connector.connect(
-                user='game',
-                password='cs642',
-                host='db2.cs642-shu.com',
-                database='games')
-	return conn;
-}
+def getConnection():
+        conn = mysql.connector.connect(option_files='/etc/mysql/gamedbconnect.cnf')
+        return conn;
 
 def insertRecord(result,user):
 
         conn = getConnection()
         cur = conn.cursor()
-        query = "insert into records (username,password,result,score,date) values ("'"+user+"','123456','"+result+"',1,sysdate())"
-        cur.execute(query)
+        query = "insert into records (username,result,date) values (%s,%s,sysdate())"
+        data = (user, result)
+        cur.execute(query,data)
         conn.commit()
         cur.close()
         conn.close()
         return;
 
 def fetchCounts(user):
-	tie=0;
-	lose=0;
-        win=0; 	
-	conn = getConnection()
+        tie=0;
+        lose=0;
+        win=0;
+        conn = getConnection()
         cur = conn.cursor()
-	query = "select result ,count(result) from records where username='"+user+"' group by result"
-        cur.execute(query)
-        for (result, count) in cursor:
-		if result == 'Tie':
-			tie=count
-	        if result == 'win':
-			win=count
-		if result == 'lose':
-			lose=count
-	cur.close()
+        query = """select result, count(result) count from records where username= %s group by result"""
+        data = (user,)
+        cur.execute(query,data)
+        for (result, count) in cur:
+                if result == 'Tie':
+                        tie=count
+                if result == 'win':
+                        win=count
+                if result == 'lose':
+                        lose=count
+        cur.close()
         conn.close()
-	return {'tie':tie, 'lose':lose ,'win':win };
-	
+        return {'tie':tie, 'lose':lose ,'win':win };
+
+print "Content-Type: text/plain;charset=utf-8"
+print
 
 
 POST={}

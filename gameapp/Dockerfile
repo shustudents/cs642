@@ -23,6 +23,8 @@ RUN chmod -v +r /var/www/html/testProjClient.js
 RUN chmod -v +r /var/www/html/GamePage.php
 ADD ReLogin.htm /var/www/html/ReLogin.htm
 ADD login.php /var/www/html/login.php
+ADD gamedbconnect.cnf /etc/mysql/gamedbconnect.cnf
+RUN chmod -v +r /etc/mysql/gamedbconnect.cnf
 
 RUN chmod -v +x /run-httpd.sh
 

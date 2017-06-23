@@ -1,9 +1,9 @@
 zone "shustundents.com" {
     type master;
-    file "/etc/named/zones/db.shustundents.com"; # zone file path
+    file "/named/etc/named/zones/db.shustundents.com"; # zone file path
 };
 
 zone "31.173.in-addr.arpa" {
     type master;
-    file "/etc/named/zones/db.173.31";  # 173.31.0.0/16 subnet
+    file "/named/etc/named/zones/db.173.31";  # 173.31.0.0/16 subnet
 };

@@ -1,5 +1,8 @@
 #!/usr/bin/python
-from random import randint
+from random 
+import randint
+import sys
+import json
 import mysql.connector
 
 def getConnection():

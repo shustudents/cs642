@@ -20,6 +20,20 @@ def insertRecord(result,user):
         cur.close()
         conn.close()
         return;
+		
+def fetchTransactionByUser(user):
+        result=0;
+        conn = getConnection()
+        cur = conn.cursor()
+        query = """select count(*) count from records where username= %s and date > now() - INTERVAL 5 MINUTE"""
+        data = (user,)
+        cur.execute(query,data)
+        for (count) in cur:
+                result=count
+        cur.close()
+        conn.close()
+        return result;
+		
 
 def fetchCounts(user):
         tie=0;
@@ -57,6 +71,13 @@ for arg in args:
 user=POST.get('user')
 input=POST.get('input')
 
+transInLastFiveMins=fetchTransactionByUser(user)
+if transInLastFiveMins[0] > 100:
+        counts={'tie':0, 'lose':0 ,'win':0 }
+        message="Sorry you reached maximum click limit, try after some time" 
+        finalResult=json.dumps({'message': message,'counts': counts })
+        print(finalResult)
+        sys.exit()
 
 #create a list of play options
 t = ["Rock", "Paper", "Scissors"]
@@ -72,7 +93,6 @@ result = "";
 
 #set message to empty string
 message = "";
-
 
 while player == False:
 #set player to True
